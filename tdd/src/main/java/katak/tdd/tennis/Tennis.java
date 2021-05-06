@@ -12,11 +12,11 @@ public class Tennis {
         return side2Score;
     }
 
-    public void addToSide1Score() {
-        side1Score++;
+    public void addToSide1Score(int ScoreToBeAdded) {
+        side1Score += ScoreToBeAdded;
     }
 
-    public void addToSide2Score() {
-        side2Score++;
+    public void addToSide2Score(int Score) {
+        side2Score += Score;
     }
 }

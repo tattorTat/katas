@@ -25,7 +25,7 @@ public class TennisTest {
         Tennis tennis = new Tennis();
 
         //when
-        tennis.addToSide1Score();
+        tennis.addToSide1Score(1);
         //then
         assertEquals(tennis.getSide1Score(), 1);
     }
@@ -36,9 +36,40 @@ public class TennisTest {
         Tennis tennis = new Tennis();
 
         //when
-        tennis.addToSide2Score();
+        tennis.addToSide2Score(1);
         //then
         assertEquals(tennis.getSide2Score(), 1);
 
     }
+
+    @Test
+    void add5PointsToPlayer1Score() {
+        Tennis tennis = new Tennis();
+
+        tennis.addToSide1Score(5);
+
+
+        assertEquals(tennis.getSide1Score(), 5);
+    }
+
+    @Test
+    void add5ToPlayer2Score() {
+        Tennis tennis = new Tennis();
+
+        tennis.addToSide2Score(5);
+
+        assertEquals(tennis.getSide2Score(), 5);
+    }
+
+
+    //
+//    @Test
+//    void threePointsAndEqual() {
+//
+//        Tennis tennis = new Tennis();
+//
+//        tennis.addToSide1Score();
+//
+//        assertEquals(tennis.getTranslatedScore(),"Duece");
+//    }
 }
