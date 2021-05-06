@@ -9,4 +9,7 @@ class SmartHomeTest {
     void usingJUnitAssert() {
         assertTrue(true);
     }
+
+    @Test
+    public void whenswitchus
 }
