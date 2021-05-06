@@ -1,6 +1,7 @@
 package katak.tdd.tennis;
 
 public class Tennis {
+    public static final String DEUCE = "Deuce";
     int side1Score = 0;
     int side2Score = 0;
 
@@ -12,15 +13,15 @@ public class Tennis {
         return side2Score;
     }
 
-    public void addToSide1Score(int ScoreToBeAdded) {
-        side1Score += ScoreToBeAdded;
+    public void addToSide1Score(int score) {
+        side1Score += score;
     }
 
-    public void addToSide2Score(int Score) {
-        side2Score += Score;
+    public void addToSide2Score(int score) {
+        side2Score += score;
     }
 
     public String getTranslatedScore() {
-        return "Deuce";
+        return DEUCE;
     }
 }

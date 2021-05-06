@@ -66,10 +66,8 @@ public class TennisTest {
     void returnsDeuce() {
 
         Tennis tennis = new Tennis();
-
         tennis.addToSide1Score(3);
         tennis.addToSide2Score(3);
-
         assertEquals(tennis.getTranslatedScore(), "Deuce");
     }
 }
