@@ -19,4 +19,8 @@ public class Tennis {
     public void addToSide2Score(int Score) {
         side2Score += Score;
     }
+
+    public String getTranslatedScore() {
+        return "Deuce";
+    }
 }

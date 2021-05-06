@@ -62,14 +62,14 @@ public class TennisTest {
     }
 
 
-    //
-//    @Test
-//    void threePointsAndEqual() {
-//
-//        Tennis tennis = new Tennis();
-//
-//        tennis.addToSide1Score();
-//
-//        assertEquals(tennis.getTranslatedScore(),"Duece");
-//    }
+    @Test
+    void returnsDeuce() {
+
+        Tennis tennis = new Tennis();
+
+        tennis.addToSide1Score(3);
+        tennis.addToSide2Score(3);
+
+        assertEquals(tennis.getTranslatedScore(), "Deuce");
+    }
 }
