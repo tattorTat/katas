@@ -3,6 +3,11 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="$PROJECT_DIR$/tdd/src/main/java/katak/tdd/tennis/Tennis.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/tdd/src/test/java/kata/tdd/tennis/TennisTest.java">
           <value>
             <set />

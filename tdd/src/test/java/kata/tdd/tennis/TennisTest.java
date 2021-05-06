@@ -15,8 +15,8 @@ public class TennisTest {
         //when
 
         //then
-        assertEquals(tennis.getPlayer1Score(), 0);
-        assertEquals(tennis.getPlayer2Score(), 0);
+        assertEquals(tennis.getSide1Score(), 0);
+        assertEquals(tennis.getSide2Score(), 0);
     }
 
     @Test
@@ -25,9 +25,9 @@ public class TennisTest {
         Tennis tennis = new Tennis();
 
         //when
-        tennis.addToPlayer1Score();
+        tennis.addToSide1Score();
         //then
-        assertEquals(tennis.getPlayer1Score(), 1);
+        assertEquals(tennis.getSide1Score(), 1);
     }
 
     @Test
@@ -36,9 +36,9 @@ public class TennisTest {
         Tennis tennis = new Tennis();
 
         //when
-        tennis.addToPlayer2Score();
+        tennis.addToSide2Score();
         //then
-        assertEquals(tennis.getPlayer2Score(), 1);
+        assertEquals(tennis.getSide2Score(), 1);
 
     }
 }
