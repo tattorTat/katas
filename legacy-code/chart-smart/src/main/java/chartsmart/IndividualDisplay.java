@@ -52,26 +52,7 @@ public class IndividualDisplay extends JPanel {
     }
 
     private void DrawChart(Graphics graphics) {
-        if (chartType == 406) {
-            if (displayStyle.equals("rpfll")) {
-                graphics.setColor(Color.RED);
-                graphics.fillRect(100, 90, getWidth() - 200, 420);
-            } else {
-                graphics.setColor(Color.BLACK);
-                graphics.fillRect(95, 95, 210, 210);
-            }
-        } else {
-            if (displayStyle.equals("rpfll")) {
-                graphics.setColor(Color.BLUE);
-                graphics.fillOval(100, 100, 450, getHeight() - 150);
-            } else {
-                graphics.setColor(Color.BLUE);
-                double isq = 405;
-                float padding = 90;
-                int sc = (int) (isq - padding * 2);
-                graphics.fillOval(100, 100, sc, sc);
-            }
-        }
+        displaySetColorAndText(graphics);
         String[] charts = null;
         List<String> getPositionalData = new ArrayList<>();
         String[] pieChartData = new String[0];
@@ -94,6 +75,34 @@ public class IndividualDisplay extends JPanel {
                 pieChartData[0] = "Pie Chart";
             }
         }
+        Font font;
+        setDisplayAndDrawChart(graphics, charts, getPositionalData, pieChartData);
+    }
+
+    private void displaySetColorAndText(Graphics graphics) {
+        if (chartType == 406) {
+            if (displayStyle.equals("rpfll")) {
+                graphics.setColor(Color.RED);
+                graphics.fillRect(100, 90, getWidth() - 200, 420);
+            } else {
+                graphics.setColor(Color.BLACK);
+                graphics.fillRect(95, 95, 210, 210);
+            }
+        } else {
+            if (displayStyle.equals("rpfll")) {
+                graphics.setColor(Color.BLUE);
+                graphics.fillOval(100, 100, 450, getHeight() - 150);
+            } else {
+                graphics.setColor(Color.BLUE);
+                double isq = 405;
+                float padding = 90;
+                int sc = (int) (isq - padding * 2);
+                graphics.fillOval(100, 100, sc, sc);
+            }
+        }
+    }
+
+    private void setDisplayAndDrawChart(Graphics graphics, String[] charts, List<String> getPositionalData, String[] pieChartData) {
         Font font;
         if (chartType == 406) {
             if (displayStyle.equals("shareddisplay")) {
