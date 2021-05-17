@@ -18,17 +18,19 @@ public class IndividualDisplay extends JPanel {
 
     private void setChartTitle() {
         if (chartType == 406) {
-            if (displayStyle.equals("rpfll")) {
-                chartTitle = "Bar Chart - Single Mode";
-            } else {
-                chartTitle = "Bar Chart - Compare Mode";
-            }
+            setSingleModeOrCompareMode("Bar Chart - Single Mode", "Bar Chart - Compare Mode");
         } else {
-            if (displayStyle.equals("rpfll")) {
-                chartTitle = "Pie Chart - Single Mode";
-            } else {
-                chartTitle = "Pie Chart - Compare Mode";
-            }
+            setSingleModeOrCompareMode("Pie Chart - Single Mode", "Pie Chart - Compare Mode");
+        }
+    }
+
+    private void setSingleModeOrCompareMode(String singleModeName, String compareModeName) {
+        if (displayStyle.equals("rpfll")) {
+            String chartTitle = singleModeName;
+            this.chartTitle = chartTitle;
+        } else {
+            String chartTitle = compareModeName;
+            this.chartTitle = chartTitle;
         }
     }
 
