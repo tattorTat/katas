@@ -13,6 +13,10 @@ public class IndividualDisplay extends JPanel {
 
     private void setSizeAndChartTitle() {
         this.setPreferredSize(new Dimension(600, 600));
+        setChartTitle();
+    }
+
+    private void setChartTitle() {
         if (chartType == 406) {
             if (displayStyle.equals("rpfll")) {
                 chartTitle = "Bar Chart - Single Mode";
