@@ -7,6 +7,8 @@ import java.util.List;
 
 public class IndividualDisplay extends JPanel {
 
+    public static final int BAR_CHART = 406;
+    public static final String SINGLE_MODE = "rpfll";
     private String displayStyle;
     private String chartTitle;
     private int chartType;
@@ -17,20 +19,22 @@ public class IndividualDisplay extends JPanel {
     }
 
     private void setChartTitle() {
-        if (chartType == 406) {
-            setSingleModeOrCompareMode("Bar Chart - Single Mode", "Bar Chart - Compare Mode");
+        if (chartType == BAR_CHART) {
+            if (displayStyle.equals(SINGLE_MODE)) {
+                String chartTitle1 = "Bar Chart - Single Mode";
+                this.chartTitle = chartTitle1;
+            } else {
+                String chartTitle1 = "Bar Chart - Compare Mode";
+                this.chartTitle = chartTitle1;
+            }
         } else {
-            setSingleModeOrCompareMode("Pie Chart - Single Mode", "Pie Chart - Compare Mode");
-        }
-    }
-
-    private void setSingleModeOrCompareMode(String singleModeName, String compareModeName) {
-        if (displayStyle.equals("rpfll")) {
-            String chartTitle = singleModeName;
-            this.chartTitle = chartTitle;
-        } else {
-            String chartTitle = compareModeName;
-            this.chartTitle = chartTitle;
+            if (displayStyle.equals(SINGLE_MODE)) {
+                String chartTitle1 = "Pie Chart - Single Mode";
+                this.chartTitle = chartTitle1;
+            } else {
+                String chartTitle1 = "Pie Chart - Compare Mode";
+                this.chartTitle = chartTitle1;
+            }
         }
     }
 
@@ -58,16 +62,16 @@ public class IndividualDisplay extends JPanel {
         String[] charts = null;
         List<String> getPositionalData = new ArrayList<>();
         String[] pieChartData = new String[0];
-        if (chartType == 406) {
-            charts = getCharts();
+        if (chartType == BAR_CHART) {
+            charts = getBarChartData();
         } else {
-            pieChartData = getPiechartData(getPositionalData, pieChartData);
+            pieChartData = getPieChartData(getPositionalData, pieChartData);
         }
         setDisplayAndDrawChart(graphics, charts, getPositionalData, pieChartData);
     }
 
-    private String[] getPiechartData(List<String> getPositionalData, String[] pieChartData) {
-        if (displayStyle.equals("rpfll")) {
+    private String[] getPieChartData(List<String> getPositionalData, String[] pieChartData) {
+        if (displayStyle.equals(SINGLE_MODE)) {
             getPositionalData.add("Pie Chart");
         } else {
             pieChartData = new String[2];
@@ -77,9 +81,9 @@ public class IndividualDisplay extends JPanel {
         return pieChartData;
     }
 
-    private String[] getCharts() {
+    private String[] getBarChartData() {
         String[] charts;
-        if (displayStyle.equals("rpfll")) {
+        if (displayStyle.equals(SINGLE_MODE)) {
             charts = new String[1];
             charts[0] = "Bar Chart";
         } else {
@@ -92,8 +96,8 @@ public class IndividualDisplay extends JPanel {
     }
 
     private void displaySetColorAndText(Graphics graphics) {
-        if (chartType == 406) {
-            if (displayStyle.equals("rpfll")) {
+        if (chartType == BAR_CHART) {
+            if (displayStyle.equals(SINGLE_MODE)) {
                 graphics.setColor(Color.RED);
                 graphics.fillRect(100, 90, getWidth() - 200, 420);
             } else {
@@ -101,7 +105,7 @@ public class IndividualDisplay extends JPanel {
                 graphics.fillRect(95, 95, 210, 210);
             }
         } else {
-            if (displayStyle.equals("rpfll")) {
+            if (displayStyle.equals(SINGLE_MODE)) {
                 graphics.setColor(Color.BLUE);
                 graphics.fillOval(100, 100, 450, getHeight() - 150);
             } else {
@@ -116,7 +120,7 @@ public class IndividualDisplay extends JPanel {
 
     private void setDisplayAndDrawChart(Graphics graphics, String[] charts, List<String> getPositionalData, String[] pieChartData) {
         Font font;
-        if (chartType == 406) {
+        if (chartType == BAR_CHART) {
             if (displayStyle.equals("shareddisplay")) {
                 font = new Font("Arial Black", Font.BOLD, 25);
                 graphics.setColor(Color.CYAN);
@@ -144,7 +148,7 @@ public class IndividualDisplay extends JPanel {
                 graphics.drawString(charts[0], 130, 400);
             }
         } else {
-            if (displayStyle.equals("rpfll")) {
+            if (displayStyle.equals(SINGLE_MODE)) {
                 font = new Font("Bookman Old Style", Font.BOLD, 55);
                 graphics.setColor(Color.WHITE);
                 graphics.setFont(font);
