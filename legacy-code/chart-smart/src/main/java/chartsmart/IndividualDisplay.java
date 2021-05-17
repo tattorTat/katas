@@ -57,26 +57,36 @@ public class IndividualDisplay extends JPanel {
         List<String> getPositionalData = new ArrayList<>();
         String[] pieChartData = new String[0];
         if (chartType == 406) {
-            if (displayStyle.equals("rpfll")) {
-                charts = new String[1];
-                charts[0] = "Bar Chart";
-            } else {
-                charts = new String[2];
-                int i = 0;
-                charts[i++] = "Bar Chart";
-                charts[i] = "Small";
-            }
+            charts = getCharts();
         } else {
-            if (displayStyle.equals("rpfll")) {
-                getPositionalData.add("Pie Chart");
-            } else {
-                pieChartData = new String[2];
-                pieChartData[1] = "Small";
-                pieChartData[0] = "Pie Chart";
-            }
+            pieChartData = getPiechartData(getPositionalData, pieChartData);
         }
-        Font font;
         setDisplayAndDrawChart(graphics, charts, getPositionalData, pieChartData);
+    }
+
+    private String[] getPiechartData(List<String> getPositionalData, String[] pieChartData) {
+        if (displayStyle.equals("rpfll")) {
+            getPositionalData.add("Pie Chart");
+        } else {
+            pieChartData = new String[2];
+            pieChartData[1] = "Small";
+            pieChartData[0] = "Pie Chart";
+        }
+        return pieChartData;
+    }
+
+    private String[] getCharts() {
+        String[] charts;
+        if (displayStyle.equals("rpfll")) {
+            charts = new String[1];
+            charts[0] = "Bar Chart";
+        } else {
+            charts = new String[2];
+            int i = 0;
+            charts[i++] = "Bar Chart";
+            charts[i] = "Small";
+        }
+        return charts;
     }
 
     private void displaySetColorAndText(Graphics graphics) {
