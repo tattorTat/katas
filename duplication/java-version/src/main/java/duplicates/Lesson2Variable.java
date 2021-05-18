@@ -2,14 +2,12 @@ package duplicates;
 
 public class Lesson2Variable extends Song {
     public void singBottlesOfBeer() {
-        {
-            Integer num = 100;
-            doesntmatterrightnow(num);
-        }
-        {
-            Integer num = 99;
-            doesntmatterrightnow(num);
-        }
+
+            doesntmatterrightnow(100);
+
+
+            doesntmatterrightnow(99);
+
     }
 
     private void doesntmatterrightnow(Integer num) {
