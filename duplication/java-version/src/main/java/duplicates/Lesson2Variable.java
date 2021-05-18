@@ -2,15 +2,11 @@ package duplicates;
 
 public class Lesson2Variable extends Song {
     public void singBottlesOfBeer() {
-
-            doesntmatterrightnow(100);
-
-
-            doesntmatterrightnow(99);
-
+        singBottleOfBeerSong(100);
+        singBottleOfBeerSong(99);
     }
 
-    private void doesntmatterrightnow(Integer num) {
+    private void singBottleOfBeerSong(Integer num) {
         sing(num + " bottles of beer on the wall");
         sing(num + " bottles of beer");
         sing("Take one down, pass it around");
