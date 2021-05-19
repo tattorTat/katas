@@ -4,25 +4,11 @@ public class Lesson21 extends Song {
     public void singSong(int style, String... names) {
         switch (style) {
             case 1: {
-                for (String name : names) {
-                    if (name.startsWith("L", 0)) {
-                        String horray = "Hip Hip Horray! For ";
-                        sing(horray + name);
-                    } else {
-                        sing("Hello " + name + ", it's nice to meet you.");
-                    }
-                }
+                foo(names, "L", 0, "Hip Hip Horray! For ");
             }
                 break;
             case 2: {
-                for (String name : names) {
-                    if (name.startsWith("am", 1)) {
-                        String sayYeah = "Say yeah! Say yo! Say ";
-                        sing(sayYeah + name);
-                    } else {
-                        sing("Hello " + name + ", it's nice to meet you.");
-                    }
-                }
+                foo(names, "am", 1, "Say yeah! Say yo! Say ");
             }
                 break;
             case 3: {
@@ -31,6 +17,19 @@ public class Lesson21 extends Song {
                 }
             }
                 break;
+        }
+    }
+
+    private void foo(String[] names, String l, int i, String s) {
+        for (String name : names) {
+            String nameStart = l;
+            int offset = i;
+            if (name.startsWith(nameStart, offset)) {
+                String celebrate = s;
+                sing(celebrate + name);
+            } else {
+                sing("Hello " + name + ", it's nice to meet you.");
+            }
         }
     }
 }
