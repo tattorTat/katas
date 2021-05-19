@@ -36,6 +36,7 @@ public class Lesson21 extends Song {
 
 
                 for (String name : names) {
+//                    foo(name, "am", 1, "Say yeah! Say yo! Say ");
                     sing("Hello " + name + ", it's nice to meet you.");
                 }
 
