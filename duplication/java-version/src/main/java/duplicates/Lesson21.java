@@ -6,9 +6,7 @@ public class Lesson21 extends Song {
             case 1: {
 
                 {
-                    for (String name : names) {
-                        foo(name, "L", 0, "Hip Hip Horray! For ");
-                    }
+                    foo(names, "L", 0, "Hip Hip Horray! For ");
                 }
 
 
@@ -20,40 +18,34 @@ public class Lesson21 extends Song {
 
 
                 {
-                    for (String name : names) {
-                        foo(name, "am", 1, "Say yeah! Say yo! Say ");
-                    }
+                    foo(names, "am", 1, "Say yeah! Say yo! Say ");
                 }
-
-
-
-
             }
-
             break;
             case 3: {
-
-
-
                 for (String name : names) {
-//                    foo(name, "am", 1, "Say yeah! Say yo! Say ");
-                    sing("Hello " + name + ", it's nice to meet you.");
+                    if (name.startsWith("am", 1)) {
+                        String name2 = name + ", it's nice to meet you.";
+                        String stringOne = "Hello ";
+                        sing(stringOne + name2);
+                    } else {
+                        sing("Hello " + name + ", it's nice to meet you.");
+                    }
                 }
-
-
-
-
             }
             break;
         }
     }
 
-    private void foo(String name, String am, int i, String s) {
-        if (name.startsWith(am, i)) {
-            String stringOne = s;
-            sing(stringOne + name);
-        } else {
-            sing("Hello " + name + ", it's nice to meet you.");
+    private void foo(String[] names, String am, int i, String s) {
+        for (String name : names) {
+            if (name.startsWith(am, i)) {
+                String stringOne = s;
+                sing(stringOne + name);
+            } else {
+                sing("Hello " + name + ", it's nice to meet you.");
+            }
         }
     }
+
 }
