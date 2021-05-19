@@ -6,7 +6,8 @@ public class Lesson21 extends Song {
             case 1: {
                 for (String name : names) {
                     if (name.startsWith("L", 0)) {
-                        sing("Hip Hip Horray! For " + name);
+                        String horray = "Hip Hip Horray! For ";
+                        sing(horray + name);
                     } else {
                         sing("Hello " + name + ", it's nice to meet you.");
                     }
@@ -16,7 +17,8 @@ public class Lesson21 extends Song {
             case 2: {
                 for (String name : names) {
                     if (name.startsWith("am", 1)) {
-                        sing("Say yeah! Say yo! Say " + name);
+                        String sayYeah = "Say yeah! Say yo! Say ";
+                        sing(sayYeah + name);
                     } else {
                         sing("Hello " + name + ", it's nice to meet you.");
                     }
