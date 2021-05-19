@@ -20,12 +20,12 @@ public class Lesson21 extends Song {
         }
     }
 
-    private void foo(String[] names, String l, int i, String s) {
-        for (String name : names) {
-            String nameStart = l;
-            int offset = i;
+    private void foo(String[] songNames, String startSongWith, int startPosition, String celebrateTag) {
+        for (String name : songNames) {
+            String nameStart = startSongWith;
+            int offset = startPosition;
             if (name.startsWith(nameStart, offset)) {
-                String celebrate = s;
+                String celebrate = celebrateTag;
                 sing(celebrate + name);
             } else {
                 sing("Hello " + name + ", it's nice to meet you.");
