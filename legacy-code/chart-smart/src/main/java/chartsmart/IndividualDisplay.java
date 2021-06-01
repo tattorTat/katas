@@ -20,21 +20,29 @@ public class IndividualDisplay extends JPanel {
 
     private void setChartTitle() {
         if (chartType == BAR_CHART) {
-            if (displayStyle.equals(SINGLE_MODE)) {
-                String chartTitle1 = "Bar Chart - Single Mode";
-                this.chartTitle = chartTitle1;
-            } else {
-                String chartTitle1 = "Bar Chart - Compare Mode";
-                this.chartTitle = chartTitle1;
-            }
+            setBarChartTitle();
         } else {
-            if (displayStyle.equals(SINGLE_MODE)) {
-                String chartTitle1 = "Pie Chart - Single Mode";
-                this.chartTitle = chartTitle1;
-            } else {
-                String chartTitle1 = "Pie Chart - Compare Mode";
-                this.chartTitle = chartTitle1;
-            }
+            setPieChartTitle();
+        }
+    }
+
+    private void setPieChartTitle() {
+        if (displayStyle.equals(SINGLE_MODE)) {
+            String chartTitle1 = "Pie Chart - Single Mode";
+            this.chartTitle = chartTitle1;
+        } else {
+            String chartTitle1 = "Pie Chart - Compare Mode";
+            this.chartTitle = chartTitle1;
+        }
+    }
+
+    private void setBarChartTitle() {
+        if (displayStyle.equals(SINGLE_MODE)) {
+            String chartTitle1 = "Bar Chart - Single Mode";
+            this.chartTitle = chartTitle1;
+        } else {
+            String chartTitle1 = "Bar Chart - Compare Mode";
+            this.chartTitle = chartTitle1;
         }
     }
 
@@ -67,7 +75,48 @@ public class IndividualDisplay extends JPanel {
         } else {
             pieChartData = getPieChartData(getPositionalData, pieChartData);
         }
-        setDisplayAndDrawChart(graphics, charts, getPositionalData, pieChartData);
+        Font font;
+        if (chartType == BAR_CHART) {
+            if (displayStyle.equals("shareddisplay")) {
+                font = new Font("Arial Black", Font.BOLD, 25);
+                graphics.setColor(Color.CYAN);
+                int bottomY = 300;
+                graphics.fillRect(100, bottomY - 100, 40, 100);
+                graphics.fillRect(140, bottomY - 200, 40, 200);
+                graphics.fillRect(180, bottomY - 150, 40, 150);
+                graphics.fillRect(220, bottomY - 125, 40, 125);
+                graphics.fillRect(260, bottomY - 170, 40, 170);
+                graphics.setColor(Color.RED);
+                graphics.setFont(font);
+                graphics.drawString(charts[0], 130, 250);
+                graphics.drawString(charts[1], 130, 270);
+            } else {
+                int bottomY = 500;
+                graphics.setColor(Color.CYAN);
+                graphics.fillRect(112, bottomY - 200, 75, 200);
+                graphics.fillRect(187, bottomY - 400, 75, 400);
+                graphics.fillRect(262, bottomY - 300, 75, 300);
+                graphics.fillRect(337, bottomY - 250, 75, 250);
+                graphics.fillRect(412, bottomY - 340, 75, 340);
+                font = new Font("Arial Black", Font.BOLD, 55);
+                graphics.setColor(Color.BLACK);
+                graphics.setFont(font);
+                graphics.drawString(charts[0], 130, 400);
+            }
+        } else {
+            if (displayStyle.equals(SINGLE_MODE)) {
+                font = new Font("Bookman Old Style", Font.BOLD, 55);
+                graphics.setColor(Color.WHITE);
+                graphics.setFont(font);
+                graphics.drawString(getPositionalData.get(0), 200, 340);
+            } else {
+                font = new Font("Bookman Old Style", Font.BOLD, 30);
+                graphics.setFont(font);
+                graphics.setColor(Color.WHITE);
+                graphics.drawString(pieChartData[0], 145, 205);
+                graphics.drawString(pieChartData[1], 170, 235);
+            }
+        }
     }
 
     private String[] getPieChartData(List<String> getPositionalData, String[] pieChartData) {
@@ -118,48 +167,4 @@ public class IndividualDisplay extends JPanel {
         }
     }
 
-    private void setDisplayAndDrawChart(Graphics graphics, String[] charts, List<String> getPositionalData, String[] pieChartData) {
-        Font font;
-        if (chartType == BAR_CHART) {
-            if (displayStyle.equals("shareddisplay")) {
-                font = new Font("Arial Black", Font.BOLD, 25);
-                graphics.setColor(Color.CYAN);
-                int bottomY = 300;
-                graphics.fillRect(100, bottomY - 100, 40, 100);
-                graphics.fillRect(140, bottomY - 200, 40, 200);
-                graphics.fillRect(180, bottomY - 150, 40, 150);
-                graphics.fillRect(220, bottomY - 125, 40, 125);
-                graphics.fillRect(260, bottomY - 170, 40, 170);
-                graphics.setColor(Color.RED);
-                graphics.setFont(font);
-                graphics.drawString(charts[0], 130, 250);
-                graphics.drawString(charts[1], 130, 270);
-            } else {
-                int bottomY = 500;
-                graphics.setColor(Color.CYAN);
-                graphics.fillRect(112, bottomY - 200, 75, 200);
-                graphics.fillRect(187, bottomY - 400, 75, 400);
-                graphics.fillRect(262, bottomY - 300, 75, 300);
-                graphics.fillRect(337, bottomY - 250, 75, 250);
-                graphics.fillRect(412, bottomY - 340, 75, 340);
-                font = new Font("Arial Black", Font.BOLD, 55);
-                graphics.setColor(Color.BLACK);
-                graphics.setFont(font);
-                graphics.drawString(charts[0], 130, 400);
-            }
-        } else {
-            if (displayStyle.equals(SINGLE_MODE)) {
-                font = new Font("Bookman Old Style", Font.BOLD, 55);
-                graphics.setColor(Color.WHITE);
-                graphics.setFont(font);
-                graphics.drawString(getPositionalData.get(0), 200, 340);
-            } else {
-                font = new Font("Bookman Old Style", Font.BOLD, 30);
-                graphics.setFont(font);
-                graphics.setColor(Color.WHITE);
-                graphics.drawString(pieChartData[0], 145, 205);
-                graphics.drawString(pieChartData[1], 170, 235);
-            }
-        }
-    }
 }
