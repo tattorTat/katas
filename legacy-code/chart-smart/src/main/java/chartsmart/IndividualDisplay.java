@@ -71,16 +71,9 @@ public class IndividualDisplay extends JPanel {
     }
 
     private void extracted(Graphics graphics) {
-        String[] charts = null;
-        List<String> getPositionalData = new ArrayList<>();
-        String[] pieChartData = new String[0];
-        if (chartType == BAR_CHART) {
-            charts = getBarChartData();
-        } else {
-            pieChartData = getPieChartData(getPositionalData, pieChartData);
-        }
         Font font;
         if (chartType == BAR_CHART) {
+            String[] charts = getBarChartData();
             if (displayStyle.equals(SINGLE_MODE)) {
                 int bottomY = 500;
                 graphics.setColor(Color.CYAN);
@@ -108,6 +101,9 @@ public class IndividualDisplay extends JPanel {
                 graphics.drawString(charts[1], 130, 270);
             }
         } else {
+            String[] pieChartData = new String[0];
+            List<String> getPositionalData = new ArrayList<>();
+            pieChartData = getPieChartData(getPositionalData, pieChartData);
             if (displayStyle.equals(SINGLE_MODE)) {
                 font = new Font("Bookman Old Style", Font.BOLD, 55);
                 graphics.setColor(Color.WHITE);
