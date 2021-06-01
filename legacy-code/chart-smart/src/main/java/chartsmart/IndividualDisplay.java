@@ -67,6 +67,10 @@ public class IndividualDisplay extends JPanel {
 
     private void DrawChart(Graphics graphics) {
         displaySetColorAndText(graphics);
+        extracted(graphics);
+    }
+
+    private void extracted(Graphics graphics) {
         String[] charts = null;
         List<String> getPositionalData = new ArrayList<>();
         String[] pieChartData = new String[0];
@@ -77,7 +81,19 @@ public class IndividualDisplay extends JPanel {
         }
         Font font;
         if (chartType == BAR_CHART) {
-            if (displayStyle.equals("shareddisplay")) {
+            if (displayStyle.equals(SINGLE_MODE)) {
+                int bottomY = 500;
+                graphics.setColor(Color.CYAN);
+                graphics.fillRect(112, bottomY - 200, 75, 200);
+                graphics.fillRect(187, bottomY - 400, 75, 400);
+                graphics.fillRect(262, bottomY - 300, 75, 300);
+                graphics.fillRect(337, bottomY - 250, 75, 250);
+                graphics.fillRect(412, bottomY - 340, 75, 340);
+                font = new Font("Arial Black", Font.BOLD, 55);
+                graphics.setColor(Color.BLACK);
+                graphics.setFont(font);
+                graphics.drawString(charts[0], 130, 400);
+            } else {
                 font = new Font("Arial Black", Font.BOLD, 25);
                 graphics.setColor(Color.CYAN);
                 int bottomY = 300;
@@ -90,18 +106,6 @@ public class IndividualDisplay extends JPanel {
                 graphics.setFont(font);
                 graphics.drawString(charts[0], 130, 250);
                 graphics.drawString(charts[1], 130, 270);
-            } else {
-                int bottomY = 500;
-                graphics.setColor(Color.CYAN);
-                graphics.fillRect(112, bottomY - 200, 75, 200);
-                graphics.fillRect(187, bottomY - 400, 75, 400);
-                graphics.fillRect(262, bottomY - 300, 75, 300);
-                graphics.fillRect(337, bottomY - 250, 75, 250);
-                graphics.fillRect(412, bottomY - 340, 75, 340);
-                font = new Font("Arial Black", Font.BOLD, 55);
-                graphics.setColor(Color.BLACK);
-                graphics.setFont(font);
-                graphics.drawString(charts[0], 130, 400);
             }
         } else {
             if (displayStyle.equals(SINGLE_MODE)) {
