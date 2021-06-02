@@ -71,29 +71,33 @@ public class IndividualDisplay extends JPanel {
     }
 
     private void extractedv1(Graphics graphics) {
-        Font font;
         if (chartType == BAR_CHART) {
-            extracted(graphics);
+            drawBarChart(graphics);
         } else {
-            String[] pieChartData = new String[0];
-            List<String> getPositionalData = new ArrayList<>();
-            pieChartData = getPieChartData(getPositionalData, pieChartData);
-            if (displayStyle.equals(SINGLE_MODE)) {
-                font = new Font("Bookman Old Style", Font.BOLD, 55);
-                graphics.setColor(Color.WHITE);
-                graphics.setFont(font);
-                graphics.drawString(getPositionalData.get(0), 200, 340);
-            } else {
-                font = new Font("Bookman Old Style", Font.BOLD, 30);
-                graphics.setFont(font);
-                graphics.setColor(Color.WHITE);
-                graphics.drawString(pieChartData[0], 145, 205);
-                graphics.drawString(pieChartData[1], 170, 235);
-            }
+            drawPieChart(graphics);
         }
     }
 
-    private void extracted(Graphics graphics) {
+    private void drawPieChart(Graphics graphics) {
+        Font font;
+        String[] pieChartData = new String[0];
+        List<String> getPositionalData = new ArrayList<>();
+        pieChartData = getPieChartData(getPositionalData, pieChartData);
+        if (displayStyle.equals(SINGLE_MODE)) {
+            font = new Font("Bookman Old Style", Font.BOLD, 55);
+            graphics.setColor(Color.WHITE);
+            graphics.setFont(font);
+            graphics.drawString(getPositionalData.get(0), 200, 340);
+        } else {
+            font = new Font("Bookman Old Style", Font.BOLD, 30);
+            graphics.setFont(font);
+            graphics.setColor(Color.WHITE);
+            graphics.drawString(pieChartData[0], 145, 205);
+            graphics.drawString(pieChartData[1], 170, 235);
+        }
+    }
+
+    private void drawBarChart(Graphics graphics) {
         Font font;
         String[] charts = getBarChartData();
         if (displayStyle.equals(SINGLE_MODE)) {
