@@ -22,13 +22,4 @@ public class BarChart implements Serializable {
         return charts;
     }
 
-    void displayBarChart(Graphics graphics, String displayStyle, JComponent jComponent) {
-        if (displayStyle.equals(IndividualDisplay.SINGLE_MODE)) {
-            graphics.setColor(Color.RED);
-            graphics.fillRect(100, 90, jComponent.getWidth() - 200, 420);
-        } else {
-            graphics.setColor(Color.BLACK);
-            graphics.fillRect(95, 95, 210, 210);
-        }
-    }
 }

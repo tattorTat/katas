@@ -142,7 +142,13 @@ public class IndividualDisplay extends JPanel {
 
     private void displaySetColorAndText(Graphics graphics) {
         if (chartType == BAR_CHART) {
-            barChart.displayBarChart(graphics, displayStyle);
+            if (displayStyle.equals(SINGLE_MODE)) {
+                graphics.setColor(Color.RED);
+                graphics.fillRect(100, 90, getWidth() - 200, 420);
+            } else {
+                graphics.setColor(Color.BLACK);
+                graphics.fillRect(95, 95, 210, 210);
+            }
         } else {
             displayPieChart(graphics);
         }
