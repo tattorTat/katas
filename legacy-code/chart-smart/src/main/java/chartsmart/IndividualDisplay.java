@@ -9,6 +9,7 @@ public class IndividualDisplay extends JPanel {
 
     public static final int BAR_CHART = 406;
     public static final String SINGLE_MODE = "rpfll";
+    private final BarChart barChart = new BarChart();
     private String displayStyle;
     private String chartTitle;
     private int chartType;
@@ -99,7 +100,7 @@ public class IndividualDisplay extends JPanel {
 
     private void drawBarChart(Graphics graphics) {
         Font font;
-        String[] charts = getBarChartData();
+        String[] charts = barChart.getBarChartData(displayStyle);
         if (displayStyle.equals(SINGLE_MODE)) {
             int bottomY = 500;
             graphics.setColor(Color.CYAN);
@@ -137,20 +138,6 @@ public class IndividualDisplay extends JPanel {
             pieChartData[0] = "Pie Chart";
         }
         return pieChartData;
-    }
-
-    private String[] getBarChartData() {
-        String[] charts;
-        if (displayStyle.equals(SINGLE_MODE)) {
-            charts = new String[1];
-            charts[0] = "Bar Chart";
-        } else {
-            charts = new String[2];
-            int i = 0;
-            charts[i++] = "Bar Chart";
-            charts[i] = "Small";
-        }
-        return charts;
     }
 
     private void displaySetColorAndText(Graphics graphics) {
