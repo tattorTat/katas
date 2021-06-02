@@ -67,10 +67,10 @@ public class IndividualDisplay extends JPanel {
 
     private void DrawChart(Graphics graphics) {
         displaySetColorAndText(graphics);
-        extractedv1(graphics);
+        drawChartByType(graphics);
     }
 
-    private void extractedv1(Graphics graphics) {
+    private void drawChartByType(Graphics graphics) {
         if (chartType == BAR_CHART) {
             drawBarChart(graphics);
         } else {
@@ -155,24 +155,32 @@ public class IndividualDisplay extends JPanel {
 
     private void displaySetColorAndText(Graphics graphics) {
         if (chartType == BAR_CHART) {
-            if (displayStyle.equals(SINGLE_MODE)) {
-                graphics.setColor(Color.RED);
-                graphics.fillRect(100, 90, getWidth() - 200, 420);
-            } else {
-                graphics.setColor(Color.BLACK);
-                graphics.fillRect(95, 95, 210, 210);
-            }
+            displayBarChart(graphics);
         } else {
-            if (displayStyle.equals(SINGLE_MODE)) {
-                graphics.setColor(Color.BLUE);
-                graphics.fillOval(100, 100, 450, getHeight() - 150);
-            } else {
-                graphics.setColor(Color.BLUE);
-                double isq = 405;
-                float padding = 90;
-                int sc = (int) (isq - padding * 2);
-                graphics.fillOval(100, 100, sc, sc);
-            }
+            displayPIChart(graphics);
+        }
+    }
+
+    private void displayPIChart(Graphics graphics) {
+        if (displayStyle.equals(SINGLE_MODE)) {
+            graphics.setColor(Color.BLUE);
+            graphics.fillOval(100, 100, 450, getHeight() - 150);
+        } else {
+            graphics.setColor(Color.BLUE);
+            double isq = 405;
+            float padding = 90;
+            int sc = (int) (isq - padding * 2);
+            graphics.fillOval(100, 100, sc, sc);
+        }
+    }
+
+    private void displayBarChart(Graphics graphics) {
+        if (displayStyle.equals(SINGLE_MODE)) {
+            graphics.setColor(Color.RED);
+            graphics.fillRect(100, 90, getWidth() - 200, 420);
+        } else {
+            graphics.setColor(Color.BLACK);
+            graphics.fillRect(95, 95, 210, 210);
         }
     }
 
