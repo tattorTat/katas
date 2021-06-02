@@ -157,11 +157,11 @@ public class IndividualDisplay extends JPanel {
         if (chartType == BAR_CHART) {
             displayBarChart(graphics);
         } else {
-            displayPIChart(graphics);
+            displayPieChart(graphics);
         }
     }
 
-    private void displayPIChart(Graphics graphics) {
+    private void displayPieChart(Graphics graphics) {
         if (displayStyle.equals(SINGLE_MODE)) {
             graphics.setColor(Color.BLUE);
             graphics.fillOval(100, 100, 450, getHeight() - 150);
