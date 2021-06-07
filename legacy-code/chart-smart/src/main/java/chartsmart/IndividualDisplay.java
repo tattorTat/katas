@@ -62,20 +62,7 @@ public class IndividualDisplay extends JPanel {
         if (chartType == BAR_CHART) {
             barChart.displayBarChart(graphics, width, displayStyle, SINGLE_MODE);
         } else {
-            displayPieChart(graphics);
-        }
-    }
-
-    private void displayPieChart(Graphics graphics) {
-        if (displayStyle.equals(SINGLE_MODE)) {
-            graphics.setColor(Color.BLUE);
-            graphics.fillOval(100, 100, 450, getHeight() - 150);
-        } else {
-            graphics.setColor(Color.BLUE);
-            double isq = 405;
-            float padding = 90;
-            int sc = (int) (isq - padding * 2);
-            graphics.fillOval(100, 100, sc, sc);
+            pieChart.displayPieChart(graphics, displayStyle, SINGLE_MODE, getHeight());
         }
     }
 
