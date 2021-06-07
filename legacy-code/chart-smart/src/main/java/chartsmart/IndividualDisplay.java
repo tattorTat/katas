@@ -10,6 +10,7 @@ public class IndividualDisplay extends JPanel {
     public static final int BAR_CHART = 406;
     public static final String SINGLE_MODE = "rpfll";
     private final BarChart barChart = new BarChart();
+    private final PieChart pieChart = new PieChart();
     private String displayStyle;
     private String chartTitle;
     private int chartType;
@@ -23,18 +24,12 @@ public class IndividualDisplay extends JPanel {
         if (chartType == BAR_CHART) {
             this.chartTitle = barChart.setBarChartTitle(displayStyle, SINGLE_MODE);
         } else {
-            this.chartTitle = setPieChartTitle(displayStyle);
+            this.chartTitle = pieChart.setPieChartTitle(displayStyle, SINGLE_MODE);
         }
     }
 
-    private String setPieChartTitle(String displayStyle) {
-        String chartTitle;
-        if (displayStyle.equals(SINGLE_MODE)) {
-            chartTitle = "Pie Chart - Single Mode";
-        } else {
-             chartTitle = "Pie Chart - Compare Mode";
-        }
-        return chartTitle;
+    private String setPieChartTitle(String displayStyle, String singleMode) {
+        return pieChart.setPieChartTitle(displayStyle, singleMode);
     }
 
     public String getTitle() {

@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/kata-gradle-starter.iml" filepath="$PROJECT_DIR$/.idea/kata-gradle-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/duplication/kata-gradle-starter.duplication.iml" filepath="$PROJECT_DIR$/.idea/modules/duplication/kata-gradle-starter.duplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/duplication/java-version/kata-gradle-starter.duplication.java-version.iml" filepath="$PROJECT_DIR$/.idea/modules/duplication/java-version/kata-gradle-starter.duplication.java-version.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/duplication/java-version/kata-gradle-starter.duplication.java-version.main.iml" filepath="$PROJECT_DIR$/.idea/modules/duplication/java-version/kata-gradle-starter.duplication.java-version.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/duplication/javascript-version/kata-gradle-starter.duplication.javascript-version.iml" filepath="$PROJECT_DIR$/.idea/modules/duplication/javascript-version/kata-gradle-starter.duplication.javascript-version.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/duplication/javascript-version/kata-gradle-starter.duplication.javascript-version.main.iml" filepath="$PROJECT_DIR$/.idea/modules/duplication/javascript-version/kata-gradle-starter.duplication.javascript-version.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/duplication/javascript-version/kata-gradle-starter.duplication.javascript-version.test.iml" filepath="$PROJECT_DIR$/.idea/modules/duplication/javascript-version/kata-gradle-starter.duplication.javascript-version.test.iml" />
     </modules>
   </component>
 </project>
