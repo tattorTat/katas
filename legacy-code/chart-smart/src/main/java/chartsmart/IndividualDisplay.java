@@ -28,10 +28,6 @@ public class IndividualDisplay extends JPanel {
         }
     }
 
-    private String setPieChartTitle(String displayStyle, String singleMode) {
-        return pieChart.setPieChartTitle(displayStyle, singleMode);
-    }
-
     public String getTitle() {
         return chartTitle;
     }
@@ -60,16 +56,16 @@ public class IndividualDisplay extends JPanel {
         if (chartType == BAR_CHART) {
             barChart.drawBarChart(graphics, displayStyle, SINGLE_MODE);
         } else {
-            drawPieChart(graphics);
+            drawPieChart(graphics, displayStyle, SINGLE_MODE);
         }
     }
 
-    private void drawPieChart(Graphics graphics) {
+    private void drawPieChart(Graphics graphics, String displayStyle, String singleMode) {
         Font font;
         String[] pieChartData = new String[0];
         List<String> getPositionalData = new ArrayList<>();
         pieChartData = getPieChartData(getPositionalData, pieChartData);
-        if (displayStyle.equals(SINGLE_MODE)) {
+        if (displayStyle.equals(singleMode)) {
             font = new Font("Bookman Old Style", Font.BOLD, 55);
             graphics.setColor(Color.WHITE);
             graphics.setFont(font);
