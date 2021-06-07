@@ -23,18 +23,18 @@ public class IndividualDisplay extends JPanel {
         if (chartType == BAR_CHART) {
             this.chartTitle = barChart.setBarChartTitle(displayStyle, SINGLE_MODE);
         } else {
-            setPieChartTitle();
+            this.chartTitle = setPieChartTitle(displayStyle);
         }
     }
 
-    private void setPieChartTitle() {
+    private String setPieChartTitle(String displayStyle) {
+        String chartTitle;
         if (displayStyle.equals(SINGLE_MODE)) {
-            String chartTitle1 = "Pie Chart - Single Mode";
-            this.chartTitle = chartTitle1;
+            chartTitle = "Pie Chart - Single Mode";
         } else {
-            String chartTitle1 = "Pie Chart - Compare Mode";
-            this.chartTitle = chartTitle1;
+             chartTitle = "Pie Chart - Compare Mode";
         }
+        return chartTitle;
     }
 
     public String getTitle() {
