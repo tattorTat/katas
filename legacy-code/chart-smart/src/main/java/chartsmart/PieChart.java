@@ -9,7 +9,7 @@ public class PieChart implements Serializable {
     public PieChart() {
     }
 
-    String setPieChartTitle(String displayStyle, String singleMode) {
+    String getTitle(String displayStyle, String singleMode) {
         String chartTitle;
         if (displayStyle.equals(singleMode)) {
             chartTitle = "Pie Chart - Single Mode";
@@ -19,7 +19,7 @@ public class PieChart implements Serializable {
         return chartTitle;
     }
 
-    void drawPieChart(Graphics graphics, String displayStyle, String singleMode) {
+    void drawChart(Graphics graphics, String displayStyle, String singleMode) {
         String[] pieChartData = new String[0];
         List<String> getPositionalData = new ArrayList<>();
         String[] pieChartData1 = pieChartData;
@@ -51,7 +51,7 @@ public class PieChart implements Serializable {
         }
     }
 
-    void displayPieChart(Graphics graphics, String displayStyle, String singleMode, int height) {
+    void displayChart(Graphics graphics, String displayStyle, String singleMode, int width, int height) {
         if (displayStyle.equals(singleMode)) {
             graphics.setColor(Color.BLUE);
             graphics.fillOval(100, 100, 450, height - 150);

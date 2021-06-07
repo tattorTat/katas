@@ -20,9 +20,9 @@ public class IndividualDisplay extends JPanel {
 
     private void setChartTitle() {
         if (chartType == BAR_CHART) {
-            this.chartTitle = barChart.setBarChartTitle(displayStyle, SINGLE_MODE);
+            this.chartTitle = barChart.getTitle(displayStyle, SINGLE_MODE);
         } else {
-            this.chartTitle = pieChart.setPieChartTitle(displayStyle, SINGLE_MODE);
+            this.chartTitle = pieChart.getTitle(displayStyle, SINGLE_MODE);
         }
     }
 
@@ -52,18 +52,17 @@ public class IndividualDisplay extends JPanel {
 
     private void drawChartByType(Graphics graphics) {
         if (chartType == BAR_CHART) {
-            barChart.drawBarChart(graphics, displayStyle, SINGLE_MODE);
+            barChart.drawChart(graphics, displayStyle, SINGLE_MODE);
         } else {
-            pieChart.drawPieChart(graphics, displayStyle, SINGLE_MODE);
+            pieChart.drawChart(graphics, displayStyle, SINGLE_MODE);
         }
     }
 
     private void displaySetColorAndText(Graphics graphics, int width) {
         if (chartType == BAR_CHART) {
-            barChart.displayBarChart(graphics, width, displayStyle, SINGLE_MODE);
+            barChart.displayChart(graphics, displayStyle, SINGLE_MODE, width, getHeight());
         } else {
-            pieChart.displayPieChart(graphics, displayStyle, SINGLE_MODE, getHeight());
+            pieChart.displayChart(graphics, displayStyle, SINGLE_MODE, width, getHeight());
         }
     }
-
 }

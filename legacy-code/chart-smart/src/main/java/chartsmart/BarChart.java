@@ -1,6 +1,5 @@
 package chartsmart;
 
-import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
 
@@ -22,7 +21,7 @@ public class BarChart implements Serializable {
         return charts;
     }
 
-    void displayBarChart(Graphics graphics, int width, String displayStyle, String singleMode) {
+    void displayChart(Graphics graphics, String displayStyle, String singleMode, int width, int height) {
         if (displayStyle.equals(singleMode)) {
             graphics.setColor(Color.RED);
             graphics.fillRect(100, 90, width - 200, 420);
@@ -32,7 +31,7 @@ public class BarChart implements Serializable {
         }
     }
 
-    void drawBarChart(Graphics graphics, String displayStyle, String singleMode) {
+    void drawChart(Graphics graphics, String displayStyle, String singleMode) {
         Font font;
         String[] charts = getBarChartData(displayStyle);
         if (displayStyle.equals(singleMode)) {
@@ -63,7 +62,7 @@ public class BarChart implements Serializable {
         }
     }
 
-    String setBarChartTitle(String displayStyle, String singleMode) {
+    String getTitle(String displayStyle, String singleMode) {
         String chartTitle;
         if (displayStyle.equals(singleMode)) {
             chartTitle = "Bar Chart - Single Mode";
