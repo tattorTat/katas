@@ -2,8 +2,6 @@ package chartsmart;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class IndividualDisplay extends JPanel {
 
@@ -56,38 +54,8 @@ public class IndividualDisplay extends JPanel {
         if (chartType == BAR_CHART) {
             barChart.drawBarChart(graphics, displayStyle, SINGLE_MODE);
         } else {
-            drawPieChart(graphics, displayStyle, SINGLE_MODE);
+            pieChart.drawPieChart(graphics, displayStyle, SINGLE_MODE);
         }
-    }
-
-    private void drawPieChart(Graphics graphics, String displayStyle, String singleMode) {
-        Font font;
-        String[] pieChartData = new String[0];
-        List<String> getPositionalData = new ArrayList<>();
-        pieChartData = getPieChartData(getPositionalData, pieChartData);
-        if (displayStyle.equals(singleMode)) {
-            font = new Font("Bookman Old Style", Font.BOLD, 55);
-            graphics.setColor(Color.WHITE);
-            graphics.setFont(font);
-            graphics.drawString(getPositionalData.get(0), 200, 340);
-        } else {
-            font = new Font("Bookman Old Style", Font.BOLD, 30);
-            graphics.setFont(font);
-            graphics.setColor(Color.WHITE);
-            graphics.drawString(pieChartData[0], 145, 205);
-            graphics.drawString(pieChartData[1], 170, 235);
-        }
-    }
-
-    private String[] getPieChartData(List<String> getPositionalData, String[] pieChartData) {
-        if (displayStyle.equals(SINGLE_MODE)) {
-            getPositionalData.add("Pie Chart");
-        } else {
-            pieChartData = new String[2];
-            pieChartData[1] = "Small";
-            pieChartData[0] = "Pie Chart";
-        }
-        return pieChartData;
     }
 
     private void displaySetColorAndText(Graphics graphics, int width) {
