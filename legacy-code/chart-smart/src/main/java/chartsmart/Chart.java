@@ -8,4 +8,12 @@ public interface Chart {
     void drawChart(Graphics graphics);
 
     String getTitle();
+
+    static Chart create(int chartType, String displayStyle) {
+        if (chartType == IndividualDisplay.BAR_CHART) {
+            return new BarChart(displayStyle, IndividualDisplay.SINGLE_MODE);
+        } else {
+            return new PieChart(displayStyle, IndividualDisplay.SINGLE_MODE);
+        }
+    }
 }
