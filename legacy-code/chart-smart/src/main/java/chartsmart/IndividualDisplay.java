@@ -17,13 +17,17 @@ public class IndividualDisplay extends JPanel {
     }
 
     public void setChartTypeAndSetChartSize(int chartType, String displayStyle, boolean shouldSetSizeAndChartTitle) {
-        if (chartType == BAR_CHART) {
-            currentChart = new BarChart(displayStyle, SINGLE_MODE);
-        } else {
-            currentChart = new PieChart(displayStyle, SINGLE_MODE);
-        }
+       currentChart = chartFactory(chartType, displayStyle);
         if (shouldSetSizeAndChartTitle) {
             setChartSize();
+        }
+    }
+
+    private Chart chartFactory(int chartType, String displayStyle) {
+        if (chartType == BAR_CHART) {
+            return new BarChart(displayStyle, SINGLE_MODE);
+        } else {
+            return new PieChart(displayStyle, SINGLE_MODE);
         }
     }
 
