@@ -6,10 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PieChart implements Serializable,Chart {
-    public PieChart() {
+    private final String displayStyle;
+    private final String singleMode;
+
+    public PieChart(String displayStyle, String singleMode) {
+        this.displayStyle = displayStyle;
+        this.singleMode = singleMode;
     }
 
-    public String getTitle(String displayStyle, String singleMode) {
+    public String getTitle() {
         String chartTitle;
         if (displayStyle.equals(singleMode)) {
             chartTitle = "Pie Chart - Single Mode";
@@ -19,7 +24,7 @@ public class PieChart implements Serializable,Chart {
         return chartTitle;
     }
 
-    public void drawChart(Graphics graphics, String displayStyle, String singleMode) {
+    public void drawChart(Graphics graphics) {
         String[] pieChartData = new String[0];
         List<String> getPositionalData = new ArrayList<>();
         getPiChartData(graphics, displayStyle, singleMode, getPositionalData, pieChartData);
@@ -50,7 +55,7 @@ public class PieChart implements Serializable,Chart {
         }
     }
 
-    public void displayChart(Graphics graphics, String displayStyle, String singleMode, int width, int height) {
+    public void displayChart(Graphics graphics, int width, int height) {
         if (displayStyle.equals(singleMode)) {
             graphics.setColor(Color.BLUE);
             graphics.fillOval(100, 100, 450, height - 150);

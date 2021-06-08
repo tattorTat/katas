@@ -3,9 +3,9 @@ package chartsmart;
 import java.awt.*;
 
 public interface Chart {
-   void displayChart(Graphics graphics, String displayStyle, String singleMode, int width, int height);
+   void displayChart(Graphics graphics, int width, int height);
 
-    void drawChart(Graphics graphics, String displayStyle, String singleMode);
+    void drawChart(Graphics graphics);
 
-    String getTitle(String displayStyle, String singleMode);
+    String getTitle();
 }

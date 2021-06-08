@@ -4,10 +4,15 @@ import java.awt.*;
 import java.io.Serializable;
 
 public class BarChart implements Serializable, Chart {
-    public BarChart() {
+    private final String displayStyle;
+    private final String singleMode;
+
+    public BarChart(String displayStyle, String singleMode) {
+        this.displayStyle = displayStyle;
+        this.singleMode = singleMode;
     }
 
-   private String[] getBarChartData(String displayStyle) {
+    private String[] getBarChartData(String displayStyle) {
         String[] charts;
         if (displayStyle.equals(IndividualDisplay.SINGLE_MODE)) {
             charts = new String[1];
@@ -22,7 +27,7 @@ public class BarChart implements Serializable, Chart {
     }
 
     @Override
-    public void displayChart(Graphics graphics, String displayStyle, String singleMode, int width, int height) {
+    public void displayChart(Graphics graphics, int width, int height) {
         if (displayStyle.equals(singleMode)) {
             graphics.setColor(Color.RED);
             graphics.fillRect(100, 90, width - 200, 420);
@@ -33,7 +38,7 @@ public class BarChart implements Serializable, Chart {
     }
 
     @Override
-    public void drawChart(Graphics graphics, String displayStyle, String singleMode) {
+    public void drawChart(Graphics graphics) {
         Font font;
         String[] charts = getBarChartData(displayStyle);
         if (displayStyle.equals(singleMode)) {
@@ -65,7 +70,7 @@ public class BarChart implements Serializable, Chart {
     }
 
     @Override
-    public String getTitle(String displayStyle, String singleMode) {
+    public String getTitle() {
         String chartTitle;
         if (displayStyle.equals(singleMode)) {
             chartTitle = "Bar Chart - Single Mode";
