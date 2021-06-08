@@ -12,6 +12,7 @@ public class IndividualDisplay extends JPanel {
     private String displayStyle;
     private String chartTitle;
     private int chartType;
+    private Chart currentChart;
 
     private void setSizeAndChartTitle() {
         this.setPreferredSize(new Dimension(600, 600));
@@ -35,6 +36,11 @@ public class IndividualDisplay extends JPanel {
      */
     public void setChartTypeAndDisplayStyleAndChartTitle(int chartType, String displayStyle, boolean shouldSetSizeAndChartTitle) {
         this.chartType = chartType;
+        if (this.chartType == BAR_CHART) {
+            currentChart = new BarChart();
+        } else {
+            currentChart = new PieChart();
+        }
         this.displayStyle = displayStyle;
         if (shouldSetSizeAndChartTitle) {
             setSizeAndChartTitle();
