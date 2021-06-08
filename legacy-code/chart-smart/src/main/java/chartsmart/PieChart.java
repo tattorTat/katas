@@ -5,11 +5,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PieChart implements Serializable {
+public class PieChart implements Serializable,Chart {
     public PieChart() {
     }
 
-    String getTitle(String displayStyle, String singleMode) {
+    public String getTitle(String displayStyle, String singleMode) {
         String chartTitle;
         if (displayStyle.equals(singleMode)) {
             chartTitle = "Pie Chart - Single Mode";
@@ -19,11 +19,10 @@ public class PieChart implements Serializable {
         return chartTitle;
     }
 
-    void drawChart(Graphics graphics, String displayStyle, String singleMode) {
+    public void drawChart(Graphics graphics, String displayStyle, String singleMode) {
         String[] pieChartData = new String[0];
         List<String> getPositionalData = new ArrayList<>();
-        String[] pieChartData1 = pieChartData;
-        getPiChartData(graphics, displayStyle, singleMode, getPositionalData, pieChartData1);
+        getPiChartData(graphics, displayStyle, singleMode, getPositionalData, pieChartData);
     }
 
     private void getPiChartData(Graphics graphics, String displayStyle, String singleMode, List<String> getPositionalData, String[] pieChartData1) {
@@ -51,7 +50,7 @@ public class PieChart implements Serializable {
         }
     }
 
-    void displayChart(Graphics graphics, String displayStyle, String singleMode, int width, int height) {
+    public void displayChart(Graphics graphics, String displayStyle, String singleMode, int width, int height) {
         if (displayStyle.equals(singleMode)) {
             graphics.setColor(Color.BLUE);
             graphics.fillOval(100, 100, 450, height - 150);
