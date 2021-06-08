@@ -24,10 +24,6 @@ public class IndividualDisplay extends JPanel {
     }
 
     public void paint(Graphics graphics) {
-        DrawChart(graphics);
-    }
-
-    private void DrawChart(Graphics graphics) {
         displaySetColorAndText(graphics, getWidth());
         drawChartByType(graphics);
     }
