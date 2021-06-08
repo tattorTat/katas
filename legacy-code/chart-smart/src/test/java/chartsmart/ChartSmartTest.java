@@ -22,7 +22,7 @@ class ChartSmartTest {
   @Test
   void testBarChartWindow() {
     IndividualDisplay chartSmart = new IndividualDisplay();
-    chartSmart.setChartTypeAndDisplayStyleAndChartTitle(406, "rpfll", true);
+    chartSmart.setChartTypeAndSetChartSize(406, "rpfll", true);
     AwtApprovals.verify(chartSmart);
     assertEquals("Bar Chart - Single Mode", chartSmart.getTitle());
   }
@@ -30,7 +30,7 @@ class ChartSmartTest {
   @Test
   void testPieChartWindow() {
     IndividualDisplay chartSmart = new IndividualDisplay();
-    chartSmart.setChartTypeAndDisplayStyleAndChartTitle(323, "rpfll", true);
+    chartSmart.setChartTypeAndSetChartSize(323, "rpfll", true);
     AwtApprovals.verify(chartSmart);
     assertEquals("Pie Chart - Single Mode", chartSmart.getTitle());
 }
@@ -38,7 +38,7 @@ class ChartSmartTest {
   @Test
   void testBarChartSmallWindow() {
     IndividualDisplay chartSmart = new IndividualDisplay();
-    chartSmart.setChartTypeAndDisplayStyleAndChartTitle(406, "shareddisplay", true);
+    chartSmart.setChartTypeAndSetChartSize(406, "shareddisplay", true);
     AwtApprovals.verify(chartSmart);
     assertEquals("Bar Chart - Compare Mode", chartSmart.getTitle());
   }
@@ -46,7 +46,7 @@ class ChartSmartTest {
   @Test
   void testPieChartSmallWindow() {
     IndividualDisplay chartSmart = new IndividualDisplay();
-    chartSmart.setChartTypeAndDisplayStyleAndChartTitle(323, "shareddisplay", true);
+    chartSmart.setChartTypeAndSetChartSize(323, "shareddisplay", true);
     AwtApprovals.verify(chartSmart);
     assertEquals("Pie Chart - Compare Mode", chartSmart.getTitle());
   }

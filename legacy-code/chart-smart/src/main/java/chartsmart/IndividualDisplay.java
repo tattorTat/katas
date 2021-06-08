@@ -8,7 +8,7 @@ public class IndividualDisplay extends JPanel {
     public static final String SINGLE_MODE = "rpfll";
     private Chart currentChart;
 
-    private void setSizeAndChartTitle() {
+    private void setChartSize() {
         this.setPreferredSize(new Dimension(600, 600));
     }
 
@@ -16,14 +16,14 @@ public class IndividualDisplay extends JPanel {
         return currentChart.getTitle();
     }
 
-    public void setChartTypeAndDisplayStyleAndChartTitle(int chartType, String displayStyle, boolean shouldSetSizeAndChartTitle) {
+    public void setChartTypeAndSetChartSize(int chartType, String displayStyle, boolean shouldSetSizeAndChartTitle) {
         if (chartType == BAR_CHART) {
             currentChart = new BarChart(displayStyle, SINGLE_MODE);
         } else {
             currentChart = new PieChart(displayStyle, SINGLE_MODE);
         }
         if (shouldSetSizeAndChartTitle) {
-            setSizeAndChartTitle();
+            setChartSize();
         }
     }
 

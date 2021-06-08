@@ -78,18 +78,18 @@ public class MainWindow extends JPanel {
                 openBarChart();
             } else if (e.getSource() == btnShowPieOrBarChart) {
                 IndividualDisplay cw = new IndividualDisplay();
-                cw.setChartTypeAndDisplayStyleAndChartTitle(getChartType(), "rpfll", true);
+                cw.setChartTypeAndSetChartSize(getChartType(), "rpfll", true);
                 display(cw);
             } else {
                 IndividualDisplay cw = new IndividualDisplay();
-                cw.setChartTypeAndDisplayStyleAndChartTitle(getChartType(), getDisplayType(), true);
+                cw.setChartTypeAndSetChartSize(getChartType(), getDisplayType(), true);
                 display(cw);
             }
         }
 
         private void openBarChart() {
             IndividualDisplay cw = new IndividualDisplay();
-            cw.setChartTypeAndDisplayStyleAndChartTitle(406, "rpfll", true);
+            cw.setChartTypeAndSetChartSize(406, "rpfll", true);
             display(cw);
         }
 
