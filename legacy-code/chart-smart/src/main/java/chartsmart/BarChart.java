@@ -3,11 +3,11 @@ package chartsmart;
 import java.awt.*;
 import java.io.Serializable;
 
-public class BarChart implements Serializable {
+public class BarChart implements Serializable, Chart {
     public BarChart() {
     }
 
-    String[] getBarChartData(String displayStyle) {
+   private String[] getBarChartData(String displayStyle) {
         String[] charts;
         if (displayStyle.equals(IndividualDisplay.SINGLE_MODE)) {
             charts = new String[1];
@@ -21,7 +21,8 @@ public class BarChart implements Serializable {
         return charts;
     }
 
-    void displayChart(Graphics graphics, String displayStyle, String singleMode, int width, int height) {
+    @Override
+    public void displayChart(Graphics graphics, String displayStyle, String singleMode, int width, int height) {
         if (displayStyle.equals(singleMode)) {
             graphics.setColor(Color.RED);
             graphics.fillRect(100, 90, width - 200, 420);
@@ -31,7 +32,8 @@ public class BarChart implements Serializable {
         }
     }
 
-    void drawChart(Graphics graphics, String displayStyle, String singleMode) {
+    @Override
+    public void drawChart(Graphics graphics, String displayStyle, String singleMode) {
         Font font;
         String[] charts = getBarChartData(displayStyle);
         if (displayStyle.equals(singleMode)) {
@@ -62,7 +64,8 @@ public class BarChart implements Serializable {
         }
     }
 
-    String getTitle(String displayStyle, String singleMode) {
+    @Override
+    public String getTitle(String displayStyle, String singleMode) {
         String chartTitle;
         if (displayStyle.equals(singleMode)) {
             chartTitle = "Bar Chart - Single Mode";

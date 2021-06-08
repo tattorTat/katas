@@ -3,7 +3,17 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="$PROJECT_DIR$/legacy-code/chart-smart/src/main/java/chartsmart/BarChart.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/legacy-code/chart-smart/src/main/java/chartsmart/IndividualDisplay.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/legacy-code/chart-smart/src/main/java/chartsmart/PieChart.java">
           <value>
             <set />
           </value>
